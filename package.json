@@ -1,9 +1,17 @@
 {
   "name": "project-react",
-  "author": {
-    "name": "Cosden Solutions",
-    "email": "contact@cosdensolutions.io"
-  },
+  "authors": [
+    {
+      "name": "Cosden Solutions",
+      "email": "contact@cosdensolutions.io",
+      "type": "teacher"
+    },
+    {
+      "name": "PK Boonpeng",
+      "email": "pkboonpeng@gmail.com",
+      "type": "student"
+    }
+  ],
   "private": true,
   "version": "1.0.0",
   "type": "module",
