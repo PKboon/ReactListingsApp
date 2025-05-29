@@ -1,73 +1,28 @@
-import axios from 'axios';
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 
-import api from '@/api';
+import DataRenderer from '@/components/DataRenderer';
 import ListingFilters from '@/components/ListingFilters';
 import ListingList from '@/components/ListingList';
-import { Separator, Spinner } from '@/components/ui';
+import { Separator } from '@/components/ui';
+import useFetch from '@/hooks/useFetch';
 
 const HomePage = () => {
-  const [listings, setListings] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(null);
   const [filters, setFilters] = useState({
     dates: undefined,
     guests: 2,
     search: '',
   });
 
-  const abortController = useRef(null);
+  const fetchOptions = useMemo(() => ({ params: filters }), [filters]);
+  const {
+    data: listings,
+    error,
+    isLoading,
+  } = useFetch('/api/listings', fetchOptions);
 
-  useEffect(() => {
-    const fetchListings = async () => {
-      try {
-        setIsLoading(true);
-        setError(null);
-
-        abortController.current = new AbortController();
-
-        const response = await api.get('/api/listings', {
-          params: filters,
-          signal: abortController.current?.signal,
-        });
-        setListings(response.data);
-      } catch (error) {
-        if (axios.isCancel(error)) {
-          return;
-        }
-
-        setError('Something went wrong. Please try again later.');
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchListings();
-
-    return () => {
-      abortController.current?.abort();
-    };
-  }, [filters]);
-
-  const renderListingList = () => {
-    if (isLoading) {
-      return (
-        <div className='flex justify-center'>
-          <Spinner size='sm' />
-        </div>
-      );
-    }
-
-    if (error) {
-      return <div className='text-center'>{error}</div>;
-    }
-
-    return <ListingList listings={listings} />;
-  };
-
-  const handleFilters = (filters) => {
+  const handleFilters = useCallback((filters) => {
     setFilters(filters);
-  };
+  }, []);
 
   return (
     <div className='container py-4'>
@@ -75,7 +30,9 @@ const HomePage = () => {
         <ListingFilters onClick={handleFilters} />
         <Separator className='my-4' />
       </div>
-      {renderListingList()}
+      <DataRenderer error={error} isLoading={isLoading}>
+        <ListingList listings={listings} />
+      </DataRenderer>
     </div>
   );
 };
