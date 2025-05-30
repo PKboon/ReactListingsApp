@@ -1,10 +1,10 @@
 # learning-react
 
-Learning React 18 Redux 9, and React Router 6. The code base is provided by [Cosden Solutions](https://cosden.solutions/project-react).
+## Overview
 
-This repo focuses on React implementation on the client side only. All API related codes are provided by Cosden Solutions.
+Learning React 18 Redux 9, and React Router 6. This repo focuses on React implementation on the client side only. The code base is provided by [Cosden Solutions](https://cosden.solutions/project-react).
 
-This course covers:
+## Course Structure
 
 - **Module 0: Introduction**
 
@@ -59,3 +59,9 @@ This course covers:
   - Forms in React
   - [React Hook Form](https://react-hook-form.com/) and [Zod](https://zod.dev/)
   - Authentication in React
+
+## Testing credentials
+
+email: `demo@cosdensolutions.io`
+<br/>
+password: `cosdensolutions`
