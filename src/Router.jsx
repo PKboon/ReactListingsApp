@@ -1,9 +1,11 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import ListingDetailsPage from '@/components/ListingDetailsPage';
+import Route from '@/components/Route';
 import HomePage from '@/pages/HomePage';
+import ListingDetailsPage from '@/pages/ListingDetailsPage';
 import ListingFavoritesPage from '@/pages/ListingFavoritesPage';
 import NotFoundPage from '@/pages/NotFoundPage';
+import SignInPage from '@/pages/SignInPage';
 
 import App from './App';
 
@@ -13,11 +15,37 @@ const router = createBrowserRouter([
     element: <App />,
     errorElement: <NotFoundPage />,
     children: [
-      { path: '/', element: <HomePage /> },
-      { path: '/favorites', element: <ListingFavoritesPage /> },
+      {
+        path: '/signin',
+        element: (
+          <Route>
+            <SignInPage />
+          </Route>
+        ),
+      },
+      {
+        path: '/',
+        element: (
+          <Route isProtected>
+            <HomePage />
+          </Route>
+        ),
+      },
       {
         path: '/listings/:listingId',
-        element: <ListingDetailsPage />,
+        element: (
+          <Route isProtected>
+            <ListingDetailsPage />
+          </Route>
+        ),
+      },
+      {
+        path: '/favorites',
+        element: (
+          <Route isProtected>
+            <ListingFavoritesPage />
+          </Route>
+        ),
       },
     ],
   },

@@ -37,7 +37,7 @@ const listingsSlice = createSlice({
           return;
         }
         state.status = 'failed';
-        state.error = action.payload.message;
+        state.error = action.payload?.message;
       });
   },
 });
