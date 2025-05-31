@@ -67,3 +67,7 @@ export const generateAccessToken = async (data) => {
     .setExpirationTime('15m')
     .sign(jwtSecret);
 };
+
+export const getUserDisplayName = (user) => {
+  return `${user.firstName} ${user.lastName}`;
+};
