@@ -2,20 +2,20 @@ import { useParams } from 'react-router-dom';
 
 import DataRenderer from '@/components/DataRenderer';
 import ListingDetailsCard from '@/components/ListingDetailsCard';
-import useFetch from '@/hooks/useFetch';
+import useListingDetailsQuery from '@/hooks/queries/useListingDetailsQuery';
 
 const ListingDetailsPage = () => {
   const { listingId } = useParams();
 
   const {
-    data: listing,
-    error,
+    data: { data: listing } = {},
+    isError,
     isLoading,
-  } = useFetch(`/api/listings/${listingId}`);
+  } = useListingDetailsQuery(listingId);
 
   return (
     <div className='container py-4'>
-      <DataRenderer error={error} isLoading={isLoading}>
+      <DataRenderer error={isError} isLoading={isLoading}>
         <ListingDetailsCard listing={listing} />
       </DataRenderer>
     </div>
