@@ -13,7 +13,7 @@ const ListingCard = ({ listing }) => {
   const listingUser = users[listing.userId];
 
   return (
-    <Link to={`/listings/${listing.id}`}>
+    <Link to={`/listings/${listing.id}`} data-testid='ListingCard'>
       <Card className='w-[320px]'>
         <div className='relative'>
           <ListingCardImages listing={listing} />
