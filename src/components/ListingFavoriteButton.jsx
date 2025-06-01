@@ -40,4 +40,5 @@ const ListingFavoriteButton = ({ className, listing }) => {
     </Button>
   );
 };
+
 export default ListingFavoriteButton;

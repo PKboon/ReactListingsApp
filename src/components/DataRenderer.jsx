@@ -15,4 +15,5 @@ const DataRenderer = ({ children, error, isLoading }) => {
 
   return children;
 };
+
 export default DataRenderer;

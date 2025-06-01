@@ -35,7 +35,7 @@ export const withAuth =
 
     // Returns 403 if token is invalid and auth is enabled
     if (env.USE_AUTH && !verified) {
-      return [401, { message: 'Unauthorized' }];
+      return [403, { message: 'Unauthorized' }];
     }
 
     // Calls the original mock function
@@ -66,4 +66,8 @@ export const generateAccessToken = async (data) => {
     .setProtectedHeader({ alg: 'HS256' })
     .setExpirationTime('15m')
     .sign(jwtSecret);
+};
+
+export const getUserDisplayName = (user) => {
+  return `${user.firstName} ${user.lastName}`;
 };

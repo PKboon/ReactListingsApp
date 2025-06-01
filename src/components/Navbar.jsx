@@ -1,25 +1,30 @@
 import { Link } from 'react-router-dom';
 
-import api from '@/api';
 import { useAuth } from '@/components/AuthProvider';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
+  DropdownMenuSeparator,
   DropdownMenuTrigger,
   Separator,
 } from '@/components/ui';
+import useSignOutMutation from '@/hooks/mutations/useSignOutMutation';
 
 const Navbar = () => {
-  const { setToken } = useAuth();
+  const { setToken, setUser } = useAuth();
+
+  const signOutMutation = useSignOutMutation();
 
   const handleSignOut = async () => {
     try {
-      await api.post('/api/signout');
+      await signOutMutation.mutateAsync();
 
       setToken(null);
+      setUser(null);
     } catch {
       setToken(null);
+      setUser(null);
     }
   };
 
@@ -28,6 +33,7 @@ const Navbar = () => {
       <div className='flex flex-row items-center justify-between gap-8 px-8 py-4'>
         <Link to='/'>Home</Link>
         <div className='flex-end flex flex-row items-center gap-8'>
+          <Link to='/listings/create'>Create Listing</Link>
           <Link to='/favorites'>Favorites</Link>
 
           <DropdownMenu>
@@ -35,6 +41,10 @@ const Navbar = () => {
               <Link>Account</Link>
             </DropdownMenuTrigger>
             <DropdownMenuContent align='end'>
+              <DropdownMenuItem asChild>
+                <Link to='/profile'>Profile</Link>
+              </DropdownMenuItem>
+              <DropdownMenuSeparator />
               <DropdownMenuItem onClick={handleSignOut}>
                 Sign Out
               </DropdownMenuItem>

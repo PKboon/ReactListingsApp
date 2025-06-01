@@ -2,22 +2,41 @@ import { useParams } from 'react-router-dom';
 
 import DataRenderer from '@/components/DataRenderer';
 import ListingDetailsCard from '@/components/ListingDetailsCard';
-import useFetch from '@/hooks/useFetch';
+import ReviewList from '@/components/ReviewList';
+import useListingDetailsQuery from '@/hooks/queries/useListingDetailsQuery';
+import useListingReviewsQuery from '@/hooks/queries/useListingReviewsQuery';
 
 const ListingDetailsPage = () => {
   const { listingId } = useParams();
 
   const {
-    data: listing,
+    data: { data: listing } = {},
     error,
     isLoading,
-  } = useFetch(`/api/listings/${listingId}`);
+  } = useListingDetailsQuery(listingId);
+
+  const {
+    data: { data: reviews } = {},
+    error: reviewsError,
+    isLoading: isReviewsLoading,
+  } = useListingReviewsQuery(listingId);
 
   return (
     <div className='container py-4'>
-      <DataRenderer error={error} isLoading={isLoading}>
-        <ListingDetailsCard listing={listing} />
-      </DataRenderer>
+      <div className='mb-8'>
+        <DataRenderer error={error} isLoading={isLoading}>
+          <ListingDetailsCard listing={listing} />
+        </DataRenderer>
+      </div>
+
+      {reviews && (
+        <div>
+          <h2 className='mb-4'>Reviews</h2>
+          <DataRenderer error={reviewsError} isLoading={isReviewsLoading}>
+            <ReviewList reviews={reviews} />
+          </DataRenderer>
+        </div>
+      )}
     </div>
   );
 };

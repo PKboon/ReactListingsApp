@@ -1,8 +1,55 @@
-# learning-react
+# 🏠 React Listings App
 
-## Overview
+## About
 
-Learning React 18 Redux 9, and React Router 6. This repo focuses on React implementation on the client side only. The code base is provided by [Cosden Solutions](https://cosden.solutions/project-react).
+This project is a React learning project that implements a vacation rental listing platform similar to Airbnb. [Live demo](https://learning-react-mu-murex.vercel.app).
+
+## Features
+
+1. Authentication
+
+   - Sign in and sign out functionality
+   - Testing credentials: `demo@cosdensolutions.io`/`cosdensolutions`
+
+2. Listing Management
+
+   - Display all listing cards
+   - Filter listings by title, date available, and number of guests
+   - Create new listings
+
+3. Listing Cards
+
+   - Each card includes:
+     - Image carousel
+     - Rating
+     - Favorite toggler
+     - Title, price, location, and number of guests capacity
+     - Host information
+
+4. Navigation & Pages
+
+   - Clicking on a card navigates to a detailed listing page with full information, description, and reviews
+   - Favorites page showing all favorited listings
+   - Account profile page displaying user details and personal listings
+
+5. Performance & Optimization
+   - Data caching for faster load times
+   - Optimized re-renders and state updates
+
+## Technologies
+
+1. [React 18](https://react.dev/)
+2. [Redux Toolkit](https://redux-toolkit.js.org/)
+3. [React Router](https://reactrouter.com/)
+4. [React Hook Form](https://react-hook-form.com/) & [Zod](https://zod.dev/)
+5. [React Query](https://tanstack.com/query/latest/docs/framework/react/overview)
+
+## Getting Started
+
+1. Clone the repository
+2. Install dependencies: `npm install`
+3. Start the development server: `npm start`
+4. Use the testing credentials above to sign in
 
 ## Course Structure
 
@@ -56,12 +103,17 @@ Learning React 18 Redux 9, and React Router 6. This repo focuses on React implem
   - [Redux Toolkit](https://redux-toolkit.js.org/)
 
 - **Module 7: Forms and Authentication**
+
   - Forms in React
   - [React Hook Form](https://react-hook-form.com/) and [Zod](https://zod.dev/)
   - Authentication in React
 
-## Testing credentials
+- **Module 8: Extended**
+  - Refactor project using [React Query](https://tanstack.com/query/latest/docs/framework/react/overview)
+  - Improve forms and inputs with `useForm` and `useController`
+  - Add Profile and Create Listing pages
+  - Add Reviews section
 
-email: `demo@cosdensolutions.io`
-<br/>
-password: `cosdensolutions`
+## Credits
+
+Course and codebase provided by [Cosden Solutions](https://cosden.solutions/project-react).
