@@ -12,20 +12,18 @@ const HomePage = () => {
     guests: 2,
     search: '',
   });
-
-  const fetchOptions = useMemo(() => ({ params: filters }), [filters]);
   const {
     data: { data: listings } = {},
     error,
     isLoading,
-  } = useListingsQuery(fetchOptions);
+  } = useListingsQuery(filters);
 
   const handleFilters = useCallback((filters) => {
     setFilters(filters);
   }, []);
 
   return (
-    <div className='container py-4'>
+    <div className='container py-4' data-testid='HomePage'>
       <div className='mb-4'>
         <ListingFilters onClick={handleFilters} />
         <Separator className='my-4' />

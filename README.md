@@ -6,18 +6,18 @@ This project is a React learning project that implements a vacation rental listi
 
 ## Features
 
-1. Authentication
+1. **Authentication**
 
    - Sign in and sign out functionality
    - Testing credentials: `demo@cosdensolutions.io`/`cosdensolutions`
 
-2. Listing Management
+2. **Listing Management**
 
    - Display all listing cards
    - Filter listings by title, date available, and number of guests
    - Create new listings
 
-3. Listing Cards
+3. **Listing Cards**
 
    - Each card includes:
      - Image carousel
@@ -26,13 +26,13 @@ This project is a React learning project that implements a vacation rental listi
      - Title, price, location, and number of guests capacity
      - Host information
 
-4. Navigation & Pages
+4. **Navigation & Pages**
 
    - Clicking on a card navigates to a detailed listing page with full information, description, and reviews
    - Favorites page showing all favorited listings
    - Account profile page displaying user details and personal listings
 
-5. Performance & Optimization
+5. **Performance & Optimization**
    - Data caching for faster load times
    - Optimized re-renders and state updates
 
@@ -43,6 +43,7 @@ This project is a React learning project that implements a vacation rental listi
 3. [React Router](https://reactrouter.com/)
 4. [React Hook Form](https://react-hook-form.com/) & [Zod](https://zod.dev/)
 5. [React Query](https://tanstack.com/query/latest/docs/framework/react/overview)
+6. [Cypress](https://www.cypress.io/) (E2E Testing)
 
 ## Getting Started
 
@@ -113,6 +114,7 @@ This project is a React learning project that implements a vacation rental listi
   - Improve forms and inputs with `useForm` and `useController`
   - Add Profile and Create Listing pages
   - Add Reviews section
+  - Add Cypress E2E testing for sign in flow, navigation, and filter functionality
 
 ## Credits
 

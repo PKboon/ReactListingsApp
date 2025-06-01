@@ -17,6 +17,7 @@ const TextInput = ({
       {multiline ? (
         <TextArea
           {...props}
+          name={name}
           type={type}
           onChange={form.field.onChange}
           onBlur={form.field.onBlur}
@@ -25,6 +26,7 @@ const TextInput = ({
       ) : (
         <Input
           {...props}
+          name={name}
           type={type}
           onChange={form.field.onChange}
           onBlur={form.field.onBlur}
