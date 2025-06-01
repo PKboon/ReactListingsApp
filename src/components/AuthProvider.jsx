@@ -95,6 +95,7 @@ const AuthProvider = ({ children }) => {
             return api(originalRequest);
           } catch {
             setToken(null);
+            setUser(null);
           }
         }
 

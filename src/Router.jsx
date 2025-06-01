@@ -1,6 +1,7 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import Route from '@/components/Route';
+import CreateListingPage from '@/pages/CreateListingPage';
 import HomePage from '@/pages/HomePage';
 import ListingDetailsPage from '@/pages/ListingDetailsPage';
 import ListingFavoritesPage from '@/pages/ListingFavoritesPage';
@@ -29,6 +30,15 @@ const router = createBrowserRouter([
         element: (
           <Route isProtected>
             <HomePage />
+          </Route>
+        ),
+      },
+      {
+        // This route will get hit before the `:listingId`
+        path: '/listings/create',
+        element: (
+          <Route isProtected>
+            <CreateListingPage />
           </Route>
         ),
       },

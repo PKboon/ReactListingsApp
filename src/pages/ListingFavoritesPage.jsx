@@ -10,7 +10,7 @@ const ListingFavoritesPage = () => {
 
   const {
     data: { data: listings } = {},
-    isError,
+    error,
     isLoading,
   } = useListingsQuery();
 
@@ -24,7 +24,7 @@ const ListingFavoritesPage = () => {
 
   return (
     <div className='container py-4'>
-      <DataRenderer error={isError} isLoading={isLoading}>
+      <DataRenderer error={error} isLoading={isLoading}>
         <ListingList listings={favoriteListings} />
       </DataRenderer>
     </div>

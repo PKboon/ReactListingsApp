@@ -13,4 +13,5 @@ const ListingList = ({ listings }) => {
     </div>
   );
 };
+
 export default ListingList;

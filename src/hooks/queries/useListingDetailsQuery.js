@@ -4,8 +4,9 @@ import api from '@/api';
 
 const useListingDetailsQuery = (listingId) => {
   return useQuery({
-    queryKey: ['listing', listingId],
+    queryKey: ['listingDetails', listingId],
     queryFn: () => api.get(`/api/listings/${listingId}`),
   });
 };
+
 export default useListingDetailsQuery;

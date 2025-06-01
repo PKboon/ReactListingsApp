@@ -21,4 +21,5 @@ const TextInput = ({ control, name, type = 'text', ...props }) => {
     </div>
   );
 };
+
 export default TextInput;

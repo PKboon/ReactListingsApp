@@ -9,13 +9,13 @@ const ListingDetailsPage = () => {
 
   const {
     data: { data: listing } = {},
-    isError,
+    error,
     isLoading,
   } = useListingDetailsQuery(listingId);
 
   return (
     <div className='container py-4'>
-      <DataRenderer error={isError} isLoading={isLoading}>
+      <DataRenderer error={error} isLoading={isLoading}>
         <ListingDetailsCard listing={listing} />
       </DataRenderer>
     </div>

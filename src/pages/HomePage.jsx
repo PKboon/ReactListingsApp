@@ -16,7 +16,7 @@ const HomePage = () => {
   const fetchOptions = useMemo(() => ({ params: filters }), [filters]);
   const {
     data: { data: listings } = {},
-    isError,
+    error,
     isLoading,
   } = useListingsQuery(fetchOptions);
 
@@ -30,7 +30,7 @@ const HomePage = () => {
         <ListingFilters onClick={handleFilters} />
         <Separator className='my-4' />
       </div>
-      <DataRenderer error={isError} isLoading={isLoading}>
+      <DataRenderer error={error} isLoading={isLoading}>
         <ListingList listings={listings} />
       </DataRenderer>
     </div>

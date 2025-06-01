@@ -7,4 +7,5 @@ const useSignOutMutation = () => {
     mutationFn: () => api.post('/api/signout'),
   });
 };
+
 export default useSignOutMutation;

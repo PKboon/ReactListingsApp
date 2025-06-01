@@ -13,7 +13,7 @@ const ProfilePage = () => {
 
   const {
     data: { data: listings } = {},
-    isError,
+    error,
     isLoading,
   } = useListingsQuery();
 
@@ -29,7 +29,7 @@ const ProfilePage = () => {
     <div className='container py-4'>
       <div className='item-center mb-4 flex flex-col'>
         <UserAvatar
-          className='mb-4 h-[150px] w-[150px]'
+          className='mx-auto mb-4 h-[150px] w-[150px]'
           imageOnly
           user={user}
         />
@@ -42,7 +42,7 @@ const ProfilePage = () => {
       </Card>
       <div>
         <h2 className='mb-4'>Your Listings</h2>
-        <DataRenderer error={isError} isLoading={isLoading}>
+        <DataRenderer error={error} isLoading={isLoading}>
           <ListingList listings={userListings} />
         </DataRenderer>
       </div>
