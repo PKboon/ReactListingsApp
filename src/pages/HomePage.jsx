@@ -1,42 +1,34 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useCallback, useMemo, useState } from 'react';
 
 import DataRenderer from '@/components/DataRenderer';
 import ListingFilters from '@/components/ListingFilters';
 import ListingList from '@/components/ListingList';
 import { Separator } from '@/components/ui';
-import { fetchListings } from '@/state/listings/listingsSlice';
+import useListingsQuery from '@/hooks/queries/useListingsQuery';
 
 const HomePage = () => {
-  const { listings, error, status } = useSelector((state) => state.listings);
-  const dispatch = useDispatch();
-
   const [filters, setFilters] = useState({
     dates: undefined,
     guests: 2,
     search: '',
   });
-
-  const fetchOptions = useMemo(() => ({ params: filters }), [filters]);
-  useEffect(() => {
-    const request = dispatch(fetchListings(fetchOptions));
-
-    return () => {
-      request.abort();
-    };
-  }, [dispatch, fetchOptions]);
+  const {
+    data: { data: listings } = {},
+    error,
+    isLoading,
+  } = useListingsQuery(filters);
 
   const handleFilters = useCallback((filters) => {
     setFilters(filters);
   }, []);
 
   return (
-    <div className='container py-4'>
+    <div className='container py-4' data-testid='HomePage'>
       <div className='mb-4'>
         <ListingFilters onClick={handleFilters} />
         <Separator className='my-4' />
       </div>
-      <DataRenderer error={error} isLoading={status === 'loading'}>
+      <DataRenderer error={error} isLoading={isLoading}>
         <ListingList listings={listings} />
       </DataRenderer>
     </div>

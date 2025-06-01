@@ -1,17 +1,25 @@
 import { DollarSign, Pin, Users } from 'lucide-react';
+import { useSelector } from 'react-redux';
 
 import ListingDetailsCardImages from '@/components/ListingDetailsCardImages';
 import ListingFavoriteButton from '@/components/ListingFavoriteButton';
+import ListingRatingStars from '@/components/ListingRatingStars';
 import { Card, Separator } from '@/components/ui';
+import UserAvatar from '@/components/UserAvatar';
 
 const ListingDetailsCard = ({ listing }) => {
+  const { users } = useSelector((state) => state.users);
+  const listingUser = users[listing.userId];
+
   return (
     <Card className='mx-auto p-4'>
-      <ListingDetailsCardImages listing={listing} />
-      <Separator className='mb-4' />
       <div className='flex justify-between'>
         <div className='flex flex-col gap-2'>
-          <h1 className='mb-2 text-2xl font-bold'>{listing.name}</h1>
+          <div className='flex items-center gap-2'>
+            <ListingRatingStars listing={listing} />
+            <h1 className='mb-0 text-2xl font-bold'>{listing.name}</h1>
+          </div>
+
           <div className='flex items-center gap-2'>
             <DollarSign className='h-4 w-4 text-primary' />
             <span className='text-muted-foreground'>
@@ -34,8 +42,19 @@ const ListingDetailsCard = ({ listing }) => {
         </div>
         <ListingFavoriteButton listing={listing} />
       </div>
+
+      <Separator className='my-4' />
+      <ListingDetailsCardImages listing={listing} />
+
       <Separator className='my-4' />
       <div className='whitespace-pre-line'>{listing.description}</div>
+
+      {listingUser && (
+        <div>
+          <Separator className='my-4' />
+          <UserAvatar user={listingUser} />
+        </div>
+      )}
     </Card>
   );
 };

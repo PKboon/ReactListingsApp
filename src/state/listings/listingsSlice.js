@@ -1,13 +1,7 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import axios from 'axios';
-
-import api from '@/api';
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  listings: [],
   favoriteListingIds: [],
-  error: null,
-  status: 'idle',
 };
 
 const listingsSlice = createSlice({
@@ -23,32 +17,7 @@ const listingsSlice = createSlice({
       );
     },
   },
-  extraReducers: (builder) => {
-    builder
-      .addCase(fetchListings.pending, (state) => {
-        state.status = 'loading';
-      })
-      .addCase(fetchListings.fulfilled, (state, action) => {
-        state.status = 'succeeded';
-        state.listings = action.payload;
-      })
-      .addCase(fetchListings.rejected, (state, action) => {
-        if (axios.isCancel(action.payload)) {
-          return;
-        }
-        state.status = 'failed';
-        state.error = action.payload?.message;
-      });
-  },
 });
-
-export const fetchListings = createAsyncThunk(
-  'listings/fetchListings',
-  async (options) => {
-    const response = await api.get('/api/listings', options);
-    return response.data;
-  },
-);
 
 export const { addFavoriteListing, removeFavoriteListing } =
   listingsSlice.actions;
