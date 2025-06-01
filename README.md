@@ -7,18 +7,15 @@ This project is a React learning project that implements a vacation rental listi
 ## Features
 
 1. **Authentication**
-
    - Sign in and sign out functionality
    - Testing credentials: `demo@cosdensolutions.io`/`cosdensolutions`
 
 2. **Listing Management**
-
    - Display all listing cards
    - Filter listings by title, date available, and number of guests
    - Create new listings
 
 3. **Listing Cards**
-
    - Each card includes:
      - Image carousel
      - Rating
@@ -27,7 +24,6 @@ This project is a React learning project that implements a vacation rental listi
      - Host information
 
 4. **Navigation & Pages**
-
    - Clicking on a card navigates to a detailed listing page with full information, description, and reviews
    - Favorites page showing all favorited listings
    - Account profile page displaying user details and personal listings
@@ -55,14 +51,12 @@ This project is a React learning project that implements a vacation rental listi
 ## Course Structure
 
 - **Module 0: Introduction**
-
   - Project Overview
   - Linting and Formatting
   - Files and Folder Structure
   - API Overview
 
 - **Module 1: React Fundamentals**
-
   - Introduction to React
   - JSX Overview
   - Component Props and Lifecycle
@@ -70,7 +64,6 @@ This project is a React learning project that implements a vacation rental listi
   - Styling and Tailwind
 
 - **Module 2: State and Event Handlers**
-
   - State in React
   - Event Handlers
   - Handling Click and Input Change Events
@@ -79,32 +72,27 @@ This project is a React learning project that implements a vacation rental listi
   - Controlled and Uncontrolled Components
 
 - **Module 3: Effects and Data Fetching**
-
   - Effects in React
   - The `useEffect` and `useRef` hooks
   - Data Fetching in React
 
 - **Module 4: Routes and Navigation**
-
   - Client VS Server Side Routing
   - [React Router](https://reactrouter.com/)
 
 - **Module 5: Hooks and Performance**
-
   - Performance in React
   - The `useMemo` hook
   - The `useCallback` hook and `memo`
   - Custom Hooks and Custom Components
 
 - **Module 6: State Management**
-
   - State Management in React
   - Prop Drilling
   - The `useContext` hook
   - [Redux Toolkit](https://redux-toolkit.js.org/)
 
 - **Module 7: Forms and Authentication**
-
   - Forms in React
   - [React Hook Form](https://react-hook-form.com/) and [Zod](https://zod.dev/)
   - Authentication in React
