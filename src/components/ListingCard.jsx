@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 import ListingCardImages from '@/components/ListingCardImages';
 import ListingFavoriteButton from '@/components/ListingFavoriteButton';
+import ListingRatingStars from '@/components/ListingRatingStars';
 import { Card, CardContent, Separator } from '@/components/ui';
 import UserAvatar from '@/components/UserAvatar';
 
@@ -19,6 +20,10 @@ const ListingCard = ({ listing }) => {
           <ListingFavoriteButton
             listing={listing}
             className='absolute right-4 top-4'
+          />
+          <ListingRatingStars
+            listing={listing}
+            className='absolute left-4 top-4'
           />
         </div>
         <CardContent className='flex flex-col gap-2 p-4'>
