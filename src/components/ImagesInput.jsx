@@ -58,8 +58,12 @@ const ImagesInput = ({ control, name }) => {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
+        {imageOptions.length > 3 && (
+          <>
+            <CarouselPrevious />
+            <CarouselNext />
+          </>
+        )}
       </Carousel>
 
       {error?.message && (

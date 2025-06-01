@@ -1,20 +1,36 @@
 import { useController } from 'react-hook-form';
 
-import { Input } from './ui/Input';
+import { Input, TextArea } from '@/components/ui';
 
-const TextInput = ({ control, name, type = 'text', ...props }) => {
+const TextInput = ({
+  control,
+  name,
+  type = 'text',
+  multiline = false,
+  ...props
+}) => {
   const form = useController({ control, name });
   const error = form.formState.errors[name];
 
   return (
     <div>
-      <Input
-        {...props}
-        type={type}
-        onChange={form.field.onChange}
-        onBlur={form.field.onBlur}
-        value={form.field.value || ''}
-      />
+      {multiline ? (
+        <TextArea
+          {...props}
+          type={type}
+          onChange={form.field.onChange}
+          onBlur={form.field.onBlur}
+          value={form.field.value || ''}
+        />
+      ) : (
+        <Input
+          {...props}
+          type={type}
+          onChange={form.field.onChange}
+          onBlur={form.field.onBlur}
+          value={form.field.value || ''}
+        />
+      )}
       {error && (
         <div className='mt-2 text-sm text-red-500'>{error.message}</div>
       )}

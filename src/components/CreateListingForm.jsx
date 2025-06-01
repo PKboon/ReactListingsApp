@@ -80,7 +80,7 @@ const CreateListingForm = () => {
           />
           <TextInput
             control={form.control}
-            multiline
+            multiline={1}
             name='description'
             placeholder='Description'
           />
