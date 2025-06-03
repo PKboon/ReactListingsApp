@@ -11,14 +11,17 @@
 
 ## About
 
-This project is a React learning project that implements a vacation rental listing platform similar to Airbnb. [Live demo](https://learning-react-mu-murex.vercel.app).
+This project is a React learning project that implements a vacation rental listing platform similar to Airbnb.
+
+[Live demo](https://learning-react-mu-murex.vercel.app)<br/>
+Testing credentials: `demo@cosdensolutions.io`/`cosdensolutions`
+[![Live demo](./public/app-screenshot.png)](https://learning-react-mu-murex.vercel.app)
 
 ## Features
 
 1. **Authentication**
 
    - Sign in and sign out functionality
-   - Testing credentials: `demo@cosdensolutions.io`/`cosdensolutions`
 
 2. **Listing Management**
 

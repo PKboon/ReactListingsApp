@@ -20,7 +20,7 @@ export const useTheme = () => {
 
 const ThemeProvider = ({
   children,
-  defaultTheme = 'dark',
+  defaultTheme = 'light',
   storageKey = 'project-react-theme',
   ...props
 }) => {

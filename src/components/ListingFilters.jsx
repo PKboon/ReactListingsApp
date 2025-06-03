@@ -15,26 +15,33 @@ const ListingFilters = ({ onClick }) => {
 
   return (
     <div
-      className='flex flex-row items-center justify-center gap-2'
+      className='flex flex-col items-center justify-center gap-2 md:flex-row'
       data-testid='ListingFilters'
     >
       <Input
         name='search'
-        className='w-[400px]'
         placeholder='Search destinations'
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       />
       <DateRangePicker
+        className='w-full md:w-[500px]'
         minDate={today}
         placeholder='Add dates'
         value={dates}
         onChange={setDates}
       />
-      <Stepper label='guest' value={guests} onChange={setGuests} />
-      <Button onClick={handleClick} data-testid='ListingFilters_Button'>
-        <Search className='h-4 w-4' />
-      </Button>
+      <div className='flex w-full gap-2 md:w-auto'>
+        <Stepper
+          className='w-full md:w-[200px]'
+          label='guest'
+          value={guests}
+          onChange={setGuests}
+        />
+        <Button onClick={handleClick} data-testid='ListingFilters_Button'>
+          <Search className='h-4 w-4' />
+        </Button>
+      </div>
     </div>
   );
 };

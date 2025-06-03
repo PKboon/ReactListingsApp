@@ -46,7 +46,7 @@ const ImagesInput = ({ control, name }) => {
           {imageOptions.map((image) => (
             <CarouselItem
               key={image}
-              className='basis-1/3'
+              className='sm:basis-1/2 md:basis-1/3'
               isSelected={selectedImages.includes(image)}
               onClick={() => handleImageSelect(image)}
             >

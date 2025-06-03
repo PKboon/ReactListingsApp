@@ -31,7 +31,7 @@ export const DateRangePicker = ({
             id='date'
             variant='outline'
             className={cn(
-              'w-[250px] justify-start text-left font-normal',
+              'justify-start text-left font-normal',
               !value && 'text-muted-foreground',
             )}
           >

@@ -8,7 +8,7 @@ const Stepper = React.forwardRef(
     return (
       <div
         className={cn(
-          'flex h-10 min-w-[190px] items-center justify-between gap-2 rounded-md border border-input bg-background py-2 text-sm',
+          'flex h-10 items-center justify-between gap-2 rounded-md border border-input bg-background py-2 text-sm',
           className,
         )}
       >
